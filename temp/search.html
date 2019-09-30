@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <script
+      src="https://kit.fontawesome.com/7e07d0a487.js"
+      crossorigin="anonymous"
+      @import url('https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap');
+    ></script>
+  </head>
+  <style>
+      *{
+          margin: 0;
+          padding: 0;
+          outline: none;
+          box-sizing: border-box;
+          font-family: 'Roboto Mono', monospace;
+      }
+      .wrapper {
+          position: absolute;
+          top: 1%;
+          left: 50%;
+          transform: translate(-50%);
+          background: rgb(240,240,240);
+          max-width: 45rem;
+          width: 80%;
+          height: 3rem;
+          padding: 4px;
+          border-radius: 5px;
+          display: flex;
+          justify-items: center;
+          justify-content: space-between;
+          border: 0.05rem solid gainsboro;
+      }
+      .wrapper .logo {
+        padding: 0.4rem 0.5rem;
+        font-weight: bold;
+        font-size: 1.5rem;
+        color: rgba(139, 127, 127, 0.7);
+      }
+      .wrapper .input {
+          width: 70%;
+          padding: 1px 5px;
+          border: 0.05rem solid gainsboro;
+          border-radius: 5px;
+          font-weight: bold;
+      }
+      .search-button {
+          background: #ffffff;
+          width: 9%;
+          padding: 1px 5px;
+          border: 0.05rem solid gainsboro;
+          border-radius: 5px;
+          position: relative;
+          cursor: pointer;
+      }
+      .search-button .fas {
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          font-size: 1.5rem;
+      }
+  </style>
+  <body>
+    <div class="wrapper">
+      <span class="logo">sWeather</span>
+      <input type="text" class="input" placeholder="Search location..." />
+      <div class="search-button">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+  </body>
+</html>
