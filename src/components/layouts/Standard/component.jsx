@@ -2,14 +2,16 @@ import React from 'react'
 import pt from 'prop-types'
 
 import Header from '@/components/blocks/global/Header'
+import Wrapper from '@/components/blocks/global/Wrapper'
+import Main from '@/components/blocks/global/Main'
 import Footer from '@/components/blocks/global/Footer'
 
 const StandardLayout = ({ children }) => (
-  <div>
+  <Wrapper>
     <Header />
-    <main>{children}</main>
+    <Main>{children}</Main>
     <Footer />
-  </div>
+  </Wrapper>
 )
 
 StandardLayout.propTypes = {

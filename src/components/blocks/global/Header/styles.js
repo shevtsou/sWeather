@@ -1,7 +1,10 @@
 import styled from 'styled-components'
 
 export default styled.header`
-  height: 128px;
+  height: 5vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: ${props => props.theme.colors.primaryDark};
   color: ${props => props.theme.colors.backgroundDark};
   font-size: ${props => props.theme.fontSizes.weryBig};
