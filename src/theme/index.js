@@ -5,6 +5,7 @@ export default {
     double: '16px',
     quadriple: '32px',
     eight: '64px',
+    sixteen: '128px',
   },
   colors: {
     background: '#ffffff',
@@ -19,8 +20,8 @@ export default {
     werySmall: '12px',
     small: '14px',
     normal: '16px',
-    big: '20px',
-    weryBig: '24px',
+    big: '30px',
+    weryBig: '50px',
   },
   letterSpacing: {
     normal: 'normal',
@@ -31,5 +32,5 @@ export default {
     normal: 400,
     bold: 700,
   },
-  fontFamily: ['Lato, "Helvetica Neue", Arial'],
+  fontFamily: ['Mansalva'],
 }

@@ -6,6 +6,7 @@ export default styled.header`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  margin-top: 20px;
   font-size: ${props => props.theme.fontSizes.weryBig};
   padding-left: ${props => props.theme.unit.quadriple};
   padding-right: ${props => props.theme.unit.quadriple};

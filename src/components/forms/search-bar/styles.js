@@ -3,6 +3,7 @@ import { Button, AutoComplete } from 'antd'
 
 const SearchWrapper = styled.div`
   width: 50vh;
+  display: flex;
 `
 
 const StyledAutoComplete = styled(AutoComplete)`

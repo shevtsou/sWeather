@@ -1,14 +1,21 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import Header from './styles'
-import SearchBar from '@/components/forms/Search-bar'
-import { Button, PageHeader, Icon } from 'antd'
+import SearchBar from '@/components/forms/search-bar'
+import { Button, Icon } from 'antd'
+import styled from 'styled-components'
 
-import { fromEventPattern } from 'rxjs'
+const Title = styled.div`
+  
+  margin-right: 0.5rem
+  font-size: ${props => props.theme.fontSizes.big}
+  font-family: ${props => props.theme.fontFamily}
+  font-weight: ${props => props.theme.fontWeights.bold};
+`
 
 export default () => (
   <Header>
-    <div style={{ marginRight: '0.5rem', fontWeight: 'bold' }}>sWeather</div>
+    <Title>sWeather</Title>
     <SearchBar />
     <Button style={{ margin: '0 0.3rem 0 ' }} type="secondary" size="large">
       <Icon style={{ fontSize: '1.5rem' }} type="environment" />
