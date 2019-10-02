@@ -2,11 +2,10 @@ import styled from 'styled-components'
 
 export default styled.header`
   height: 5vh;
+  width: 80vh;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  background-color: ${props => props.theme.colors.primaryDark};
-  color: ${props => props.theme.colors.backgroundDark};
   font-size: ${props => props.theme.fontSizes.weryBig};
   padding-left: ${props => props.theme.unit.quadriple};
   padding-right: ${props => props.theme.unit.quadriple};
