@@ -32,5 +32,5 @@ export default {
     normal: 400,
     bold: 700,
   },
-  fontFamily: ['Mansalva'],
+  fontFamily: ['Inconsolasta'],
 }

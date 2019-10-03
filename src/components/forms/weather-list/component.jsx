@@ -34,18 +34,28 @@ class WeatherList extends React.Component {
       ...generateWeather(),
     },
     {
-      dayOfWeek: 'Mon',
-      date: 'Sep 28',
+      dayOfWeek: 'Sun',
+      date: 'Sep 27',
       ...generateWeather(),
     },
     {
-      dayOfWeek: 'Tue',
-      date: 'Sep 29',
+      dayOfWeek: 'Sun',
+      date: 'Sep 27',
       ...generateWeather(),
     },
     {
-      dayOfWeek: 'Wed',
-      date: 'Sep 30',
+      dayOfWeek: 'Sun',
+      date: 'Sep 27',
+      ...generateWeather(),
+    },
+    {
+      dayOfWeek: 'Sun',
+      date: 'Sep 27',
+      ...generateWeather(),
+    },
+    {
+      dayOfWeek: 'Sun',
+      date: 'Sep 27',
       ...generateWeather(),
     },
   ]

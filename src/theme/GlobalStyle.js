@@ -2,8 +2,8 @@ import { createGlobalStyle } from 'styled-components'
 import 'antd/dist/antd.css'
 
 export default createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css?family=Mansalva&display=swap');
-  
+  @import url('https://fonts.googleapis.com/css?family=Inconsolata&display=swap');
+
   header {
     font-weight: ${props => props.theme.fontWeights.normal};
     font-family: ${props => props.theme.fontFamily}

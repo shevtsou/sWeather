@@ -6,7 +6,7 @@ import { WiCloud, WiRain, WiFog, WiDaySunny } from 'react-icons/wi'
 import { CLOUDY, SUNNY, RAINY, FOG } from '../../../constants/weather'
 import styled from 'styled-components'
 
-function getIconByWeatherName(weather) {
+function getIconByWeatherName (weather) {
   switch (weather) {
     case CLOUDY:
       return WiCloud
@@ -27,7 +27,10 @@ const CentralizedBlock = styled.div`
   alignItems: 'center',
 `
 
-const Label = styled.div``
+const Label = styled.div`
+  display: flex;
+  justify-content: center;
+`
 const BoldLabel = styled.div`
   font-weight: bold;
 `
@@ -42,12 +45,11 @@ const TempretureMeasure = styled.span`
 `
 const WeatherCharacteristics = styled.div`
   font-size: ${props => props.theme.fontSizes.normal};
-  width: 30%;
   display: flex;
   flex-flow: column;
   align-items: center;
 `
-function WeatherBlock(props) {
+function WeatherBlock (props) {
   const WeatherIcon = getIconByWeatherName(props.weatherDescription)
   return (
     <Wrapper>
@@ -58,7 +60,7 @@ function WeatherBlock(props) {
 
       <CentralizedBlock>
         <WeatherIcon size={100} />
-        <Label style={{}}>
+        <Label>
           {props.weatherDescription.toLowerCase()}{' '}
         </Label>
       </CentralizedBlock>
