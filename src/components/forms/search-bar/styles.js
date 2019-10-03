@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Button, AutoComplete } from 'antd'
 
-const SearchWrapper = styled.div`
+const SearchForm = styled.form`
   width: 50vh;
   display: flex;
 `
@@ -12,6 +12,5 @@ const StyledAutoComplete = styled(AutoComplete)`
 
 const StyledButton = styled(Button)`
   margin-right: -0.75rem;
-  background-color: blueviolet
 `
-export { StyledAutoComplete, SearchWrapper, StyledButton }
+export { StyledAutoComplete, SearchForm, StyledButton }

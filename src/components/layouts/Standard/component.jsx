@@ -15,10 +15,10 @@ const StandardLayout = ({ children }) => (
 )
 
 StandardLayout.propTypes = {
-  children: pt.oneOfType([
+  children: pt.arrayOf(pt.oneOfType([
     pt.string.isRequired,
     pt.element.isRequired,
-  ]),
+  ])),
 }
 
 export default StandardLayout

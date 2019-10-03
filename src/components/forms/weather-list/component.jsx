@@ -22,43 +22,30 @@ function generateWeather () {
 }
 
 class WeatherList extends React.Component {
-  state = [
-    {
-      dayOfWeek: 'Today',
-      date: 'Sep 26',
-      ...generateWeather(),
-    },
-    {
-      dayOfWeek: 'Sun',
-      date: 'Sep 27',
-      ...generateWeather(),
-    },
-    {
-      dayOfWeek: 'Sun',
-      date: 'Sep 27',
-      ...generateWeather(),
-    },
-    {
-      dayOfWeek: 'Sun',
-      date: 'Sep 27',
-      ...generateWeather(),
-    },
-    {
-      dayOfWeek: 'Sun',
-      date: 'Sep 27',
-      ...generateWeather(),
-    },
-    {
-      dayOfWeek: 'Sun',
-      date: 'Sep 27',
-      ...generateWeather(),
-    },
-    {
-      dayOfWeek: 'Sun',
-      date: 'Sep 27',
-      ...generateWeather(),
-    },
-  ]
+  state = {
+    weatherForecasts: [
+      {
+        dayOfWeek: 'Today',
+        date: 'Sep 26',
+        ...generateWeather(),
+      },
+      {
+        dayOfWeek: 'Sun',
+        date: 'Sep 28',
+        ...generateWeather(),
+      },
+      {
+        dayOfWeek: 'Sun',
+        date: 'Sep 29',
+        ...generateWeather(),
+      },
+      {
+        dayOfWeek: 'Sun',
+        date: 'Sep 30',
+        ...generateWeather(),
+      }
+    ], 
+  }
 
   render () {
     return (
@@ -70,11 +57,11 @@ class WeatherList extends React.Component {
           alignItems: 'center',
         }}
       >
-        {this.state.map(day => (
-          <>
-            <WeatherBlock key={day.date} {...day} />
+        {this.state.weatherForecasts.map(day => (
+          <React.Fragment key={day.date}>
+            <WeatherBlock {...day} />
             <Divider />
-          </>
+          </React.Fragment>
         ))}
       </div>
     )

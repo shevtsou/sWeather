@@ -1,1 +1,2 @@
-export const WEATHER_API_ACCESS_KEY = '/'
+export const WEATHER_STACK_API_ACCESS_KEY = '6c0190d0690bdd773639a4dec0f4efa2'
+export const FORECAST_DAYS = 7

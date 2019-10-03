@@ -82,7 +82,7 @@ WeatherBlock.propTypes = {
   date: PropTypes.string,
   dayOfWeek: PropTypes.string,
   weatherDescription: PropTypes.string,
-  temperature: PropTypes.string,
+  temperature: PropTypes.number,
   precipitation: PropTypes.number,
   humidity: PropTypes.number,
   wind: PropTypes.number,
