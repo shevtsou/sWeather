@@ -5,9 +5,8 @@ import {
   SearchForm,
 } from './styles'
 import { Icon, Input, AutoComplete } from 'antd'
-import { connect } from 'http2'
-import { getWeather } from '.'
-const { Option } = AutoComplete
+import { connect } from 'react-redux'
+import { getWeather } from '../../../actions/weather'
 
 // const locationNames = [
 //   'Belarus Vitebsk',
@@ -59,13 +58,9 @@ class Search extends React.Component {
     this.setState({ searchTerm: value })
   }
 
-  handleSearch = e => {
+  render () {
     const { searchTerm } = this.state
-    this.props.getWeather(searchTerm)
-  }
-
-  render() {
-    const { searchTerm } = this.state
+    const { getWeather } = this.props
     return (
       <SearchForm onSubmit={this.handleSearch}>
         <StyledAutoComplete
@@ -80,7 +75,7 @@ class Search extends React.Component {
               <StyledButton
                 size="large"
                 type="primary"
-                onClick={this.handleSearch}
+                onClick={() => getWeather(searchTerm)}
               >
                 <Icon type="search" />
               </StyledButton>

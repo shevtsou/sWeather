@@ -2,6 +2,7 @@ import React from 'react'
 import WeatherBlock from '@/components/forms/weather-block'
 import { Divider } from 'antd'
 import { CLOUDY, SUNNY, RAINY, FOG } from '../../../constants/weather';
+import { connect } from 'react-redux'
 
 function randomElement (arr) {
   return arr[Math.floor(Math.random() * arr.length)]
@@ -22,32 +23,33 @@ function generateWeather () {
 }
 
 class WeatherList extends React.Component {
-  state = {
-    weatherForecasts: [
-      {
-        dayOfWeek: 'Today',
-        date: 'Sep 26',
-        ...generateWeather(),
-      },
-      {
-        dayOfWeek: 'Sun',
-        date: 'Sep 28',
-        ...generateWeather(),
-      },
-      {
-        dayOfWeek: 'Sun',
-        date: 'Sep 29',
-        ...generateWeather(),
-      },
-      {
-        dayOfWeek: 'Sun',
-        date: 'Sep 30',
-        ...generateWeather(),
-      }
-    ], 
-  }
+  // state = {
+  //   weatherForecasts: [
+  //     {
+  //       dayOfWeek: 'Today',
+  //       date: 'Sep 26',
+  //       ...generateWeather(),
+  //     },
+  //     {
+  //       dayOfWeek: 'Sun',
+  //       date: 'Sep 28',
+  //       ...generateWeather(),
+  //     },
+  //     {
+  //       dayOfWeek: 'Sun',
+  //       date: 'Sep 29',
+  //       ...generateWeather(),
+  //     },
+  //     {
+  //       dayOfWeek: 'Sun',
+  //       date: 'Sep 30',
+  //       ...generateWeather(),
+  //     }
+  //   ], 
+  // }
 
   render () {
+    const { weather } = this.props.weather
     return (
       <div
         style={{
@@ -57,7 +59,7 @@ class WeatherList extends React.Component {
           alignItems: 'center',
         }}
       >
-        {this.state.weatherForecasts.map(day => (
+        {weather.map(day => (
           <React.Fragment key={day.date}>
             <WeatherBlock {...day} />
             <Divider />
@@ -68,4 +70,6 @@ class WeatherList extends React.Component {
   }
 }
 
-export default WeatherList
+export default connect(state => ({ 
+  weather: state.weather
+ }))(WeatherList)
