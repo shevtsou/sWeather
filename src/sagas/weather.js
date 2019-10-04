@@ -2,11 +2,10 @@ import {
   WEATHER_STACK_API_ACCESS_KEY,
   FORECAST_DAYS,
 } from '../constants/whether-api'
-import { put, call } from 'redux-saga/effects'
+import { put } from 'redux-saga/effects'
 
 import { GET_WEATHER_SUCCESS, GET_WEATHER_FAIL } from '../constants/actions'
 import { formatDate, getDayOfWeek } from '../utils/dateUtils'
-
 
 export function * retrieveWeather (action) {
   const stats = []

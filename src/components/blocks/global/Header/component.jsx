@@ -2,6 +2,7 @@ import React from 'react'
 import 'antd/dist/antd.css'
 import Header from './styles'
 import SearchBar from '@/components/forms/search-bar'
+import LocationButton from '../../../forms/locationButton'
 import { Button, Icon } from 'antd'
 import styled from 'styled-components'
 
@@ -17,9 +18,7 @@ export default () => (
   <Header>
     <Title>sWeather</Title>
     <SearchBar />
-    <Button style={{ margin: '0 0.3rem 0 ' }} type="secondary" size="large">
-      <Icon style={{ fontSize: '1.5rem' }} type="environment" />
-    </Button>
+    <LocationButton />
     <Button type="secondary" size="large">
       <Icon style={{ fontSize: '1.5rem' }} type="setting" />
     </Button>
