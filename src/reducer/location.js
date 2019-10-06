@@ -1,8 +1,10 @@
 import { GET_CURRENT_LOCATION, GET_CURRENT_LOCATION_SUCCESS, GET_CURRENT_LOCATION_FAIL } from '../constants/actions'
 
 const initialState = {
-  latitude: 0,
-  longtitude: 0,
+  location: {
+    latitude: 0,
+    longitude: 0,
+  },
   isFetching: false,
   error: '',
 }

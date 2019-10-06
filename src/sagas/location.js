@@ -17,9 +17,9 @@ export function * retrieveCurrentLocation () {
     yield put({
       type: GET_CURRENT_LOCATION_SUCCESS,
       payload: {
-        latitude: response.coords.latitude,
-        longtitue: response.coords.longtitue,
-      }
+        latitude: Math.round(response.coords.latitude),
+        longitude: Math.round(response.coords.longitude),
+      },
     })
   } catch (e) {
     yield put({ type: GET_CURRENT_LOCATION_FAIL, payload: e })

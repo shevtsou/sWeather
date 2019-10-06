@@ -5,17 +5,17 @@ import styled from 'styled-components'
 import { connect } from 'react-redux'
 
 const Location = styled.div`
-  font-size: ${props => props.theme.fontSizes.weryBig}
-  font-family: ${props => props.theme.fontFamily}
+  font-size: ${props => props.theme.fontSizes.weryBig};
+  font-family: ${props => props.theme.fontFamily};
 `
 
 const LocationWrapper = function (props) {
-  const { latitude, longtitude } = props.location
+  const { latitude, longitude } = props.location
 
-  return <Location>{latitude}/{longtitude}</Location>
+  return <Location>{latitude}/{longitude}</Location>
 }
 LocationWrapper.propTypes = {
   location: PropTypes.string,
 }
 
-export default connect(state => ({ location: state.location }))(LocationWrapper)
+export default connect(state => ({ location: state.location.location }))(LocationWrapper)
