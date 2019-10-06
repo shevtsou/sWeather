@@ -1,17 +1,19 @@
 import React from 'react'
 
 import { connect } from 'react-redux'
-import { getLocation } from '../../../actions'
+import { getLocation, getWeather } from '../../../actions'
 import { Button, Icon } from 'antd'
 
 const LocationButton = function (props) {
-  const { getLocation } = props
+  const { getLocation, getWeather, location } = props
   return (
     <Button
       style={{ margin: '0 0.3rem 0 ' }}
       type="secondary"
       size="large"
-      onClick={() => getLocation()}
+      onClick={() => { 
+        getLocation();
+       getWeather(location) }}
     >
       <Icon style={{ fontSize: '1.5rem' }} type="environment" />
     </Button>
@@ -19,6 +21,6 @@ const LocationButton = function (props) {
 }
 
 export default connect(
-  null,
-  { getLocation }
+  state => ({ location: state.location.location }),
+  { getLocation, getWeather }
 )(LocationButton)

@@ -67,14 +67,14 @@ function WeatherBlock (props) {
       </CentralizedBlock>
 
       <TempretureIdicator>
-        {props.temperature}
+        {Math.round(props.temperature)}
         <TempretureMeasure>°C</TempretureMeasure>
       </TempretureIdicator>
 
       <WeatherCharacteristics>
-        <div>Precipitation: {props.precipitation}%</div>
-        <div>Humidity: {props.humidity}%</div>
-        <div>Wind: {props.wind}km/h</div>
+        <div>Precipitation: {Math.round(props.precipitation)}%</div>
+        <div>Humidity: {Math.round(props.humidity)}%</div>
+        <div>Wind: {Math.round(props.wind)}km/h</div>
       </WeatherCharacteristics>
     </Wrapper>
   )
