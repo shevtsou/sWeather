@@ -10,9 +10,9 @@ const Location = styled.div`
 `
 
 const LocationWrapper = function (props) {
-  const { latitude, longitude } = props.location
+  const { city, country } = props.location
 
-  return <Location>{latitude}/{longitude}</Location>
+  return <Location>{city}, {country}</Location>
 }
 LocationWrapper.propTypes = {
   location: PropTypes.string,

@@ -2,6 +2,8 @@ import { GET_CURRENT_LOCATION, GET_CURRENT_LOCATION_SUCCESS, GET_CURRENT_LOCATIO
 
 const initialState = {
   location: {
+    city: '',
+    country: '',
     latitude: 0,
     longitude: 0,
   },
