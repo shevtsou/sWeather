@@ -1,4 +1,4 @@
-import { GET_WEATHER, GET_WEATHER_SUCCESS, GET_WEATHER_FAIL } from '../constants/actions'
+import { GET_WEATHER, GET_WEATHER_SUCCESS, GET_WEATHER_FAIL, CHANGE_WEATHER_API } from '../constants/actions'
 import { METAWEATHER_API, WEATHERBIT_API } from '../constants'
 
 const initialState = {
@@ -30,6 +30,11 @@ export default function (state = initialState, action) {
         ...state,
         isFetching: false,
         error: action.payload,
+      }
+    case CHANGE_WEATHER_API:
+      return {
+        ...state,
+        weatherApi: action.payload.weatherApi,
       }
     default:
       return state

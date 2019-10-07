@@ -1,49 +1,5 @@
 search-bar: 6
 
-https://www.iconfinder.com/iconsets/weather-and-forecast-free
-
-{ 
-   "request":{ 
-      "type":"City",
-      "query":"Vitebsk, Russia",
-      "language":"en",
-      "unit":"m"
-   },
-   "location":{ 
-      "name":"Vitebsk",
-      "country":"Russia",
-      "region":"Novosibirsk",
-      "lat":"55.743",
-      "lon":"84.358",
-      "timezone_id":"Asia\/Novosibirsk",
-      "localtime":"2019-10-03 21:28",
-      "localtime_epoch":1570138080,
-      "utc_offset":"7.0"
-   },
-   "current":{ 
-      "observation_time":"02:28 PM",
-      "temperature":7,
-      "weather_code":113,
-      "weather_icons":[ 
-         "https:\/\/assets.weatherstack.com\/images\/wsymbols01_png_64\/wsymbol_0008_clear_sky_night.png"
-      ],
-      "weather_descriptions":[ 
-         "Clear"
-      ],
-      "wind_speed":13,
-      "wind_degree":209,
-      "wind_dir":"SSW",
-      "pressure":1029,
-      "precip":0,
-      "humidity":76,
-      "cloudcover":0,
-      "feelslike":4,
-      "uv_index":0,
-      "visibility":10,
-      "is_day":"no"
-   }
-}
-
 change name case
 add prop types
 theme changing ant
@@ -57,3 +13,14 @@ integration with api 2 5 2
 
 https://www.metaweather.com/api/
 https://www.weatherbit.io/api/weather-forecast-16-day
+
+
+move components from form
+
+    if (action.payload.weatherApi === 'METAWEATHER_API') {
+
+weather api select 2 5 3
+!fix layout
+!change theme
+!center search box
+!to celcius

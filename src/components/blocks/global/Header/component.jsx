@@ -3,6 +3,7 @@ import 'antd/dist/antd.css'
 import Header from './styles'
 import SearchBar from '@/components/forms/search-bar'
 import LocationButton from '../../../forms/locationButton'
+import WeatherApiSelect from '../../common/weatherApiSelect'
 import { Button, Icon } from 'antd'
 import styled from 'styled-components'
 
@@ -13,14 +14,11 @@ const Title = styled.div`
   font-family: ${props => props.theme.fontFamily}
   font-weight: ${props => props.theme.fontWeights.bold};
 `
-
 export default () => (
   <Header>
     <Title>sWeather</Title>
     <SearchBar />
     <LocationButton />
-    <Button type="secondary" size="large">
-      <Icon style={{ fontSize: '1.5rem' }} type="setting" />
-    </Button>
+    <WeatherApiSelect />
   </Header>
 )
