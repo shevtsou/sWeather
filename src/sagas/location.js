@@ -38,6 +38,9 @@ export function* retrieveCurrentLocation() {
         longitude: longitude
       }
     })
+    yield put({
+      type: GET_WEATHER,
+    })
   } catch (e) {
     yield put({ type: GET_CURRENT_LOCATION_FAIL, payload: e })
   }
