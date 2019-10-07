@@ -1,50 +1,13 @@
 import React from 'react'
-import {
-  StyledAutoComplete,
-  StyledButton,
-  SearchForm,
-} from './styles'
+import { StyledAutoComplete, StyledButton, SearchForm } from './styles'
 import { Icon, Input, AutoComplete } from 'antd'
 import { connect } from 'react-redux'
 import { getWeather } from '../../../actions/weather'
-
-// const locationNames = [
-//   'Belarus Vitebsk',
-//   'Belarus Minsk',
-//   'Belarus Gomel',
-//   'Belarus Mogilev',
-//   'USA New York',
-//   'USA London',
-//   'Germany Berlin'
-// ]
-
-// const mockDataSource = locationNames.map((locationName, index) => {
-//   return {
-//     id: index,
-//     country: locationName.split(' ')[0],
-//     city: locationName.split(' ')[1]
-//   }
-// })
-
-// function onSelect(value) {
-//   console.log('onSelect', value)
-// }
-
-// function renderOption(item) {
-//   return (
-//     <Option key={item.id} text={item.country + ', ' + item.city}>
-//       <div className="global-search-item">
-//         <span className="global-search-item-desc">
-//           {item.country}, {item.city}
-//         </span>
-//       </div>
-//     </Option>
-//   )
-// }
+import { changeLocation } from '../../../actions'
 
 class Search extends React.Component {
   state = {
-    searchTerm: '',
+    searchTerm: ''
   }
 
   handleChange = value => {
@@ -58,9 +21,9 @@ class Search extends React.Component {
     this.setState({ searchTerm: value })
   }
 
-  render () {
+  render() {
     const { searchTerm } = this.state
-    const { getWeather } = this.props
+    const { location, getWeather, changeLocation } = this.props
     return (
       <SearchForm onSubmit={this.handleSearch}>
         <StyledAutoComplete
@@ -75,7 +38,9 @@ class Search extends React.Component {
               <StyledButton
                 size="large"
                 type="primary"
-                onClick={() => getWeather(searchTerm)}
+                onClick={() => {
+                  changeLocation(searchTerm)
+                }}
               >
                 <Icon type="search" />
               </StyledButton>
@@ -86,4 +51,9 @@ class Search extends React.Component {
     )
   }
 }
-export default connect(null, { getWeather })(Search)
+export default connect(
+  state => ({
+    location: state.location.location,
+  }),
+  { getWeather, changeLocation }
+)(Search)

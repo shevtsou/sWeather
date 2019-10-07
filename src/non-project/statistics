@@ -24,3 +24,15 @@ weather api select 2 5 3
 !change theme
 !center search box
 !to celcius
+
+add search bar functionality 2 6 _
+
+add props type
+
+
+replace with
+    const getToken = (state) => state.token
+    // ...
+    const token = yield select(getToken)
+
+!fix current location

@@ -9,7 +9,7 @@ import { changeWeatherApi, getWeather, getLocation } from '../../../../actions'
 import { Button, Icon, Select } from 'antd'
 const { Option } = Select
 
-const WeatherApiSelect = function(props) {
+const WeatherApiSelect = function (props) {
   const { changeWeatherApi, getWeather, weatherApi, location } = props
   return (
     <Select
@@ -30,7 +30,7 @@ const WeatherApiSelect = function(props) {
 export default connect(
   state => ({
     weatherApi: state.weather.weatherApi,
-    location: state.location.location
+    location: state.location.location,
   }),
   { changeWeatherApi, getWeather }
 )(WeatherApiSelect)

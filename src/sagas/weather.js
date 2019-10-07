@@ -5,21 +5,24 @@ import {
   FORECAST_DAYS,
   CORS_PROXY_URL
 } from '../constants/whether-api'
-import { put } from 'redux-saga/effects'
+import { put, select } from 'redux-saga/effects'
 
 import { GET_WEATHER_SUCCESS, GET_WEATHER_FAIL } from '../constants/actions'
 import { formatDate, getDayOfWeek, toCelcius } from '../utils/utils'
 import moment from 'moment'
 
+const getLocation = state => state.location.location
+const getWeatherApi = state => state.weather.weatherApi
+
 export function* retrieveWeather(action) {
   let forecasts = []
-  const { location } = action.payload
-
+  const location = yield select(getLocation)
+  const weatherApi = yield select(getWeatherApi)
   try {
-    if (action.payload.weatherApi === 'METAWEATHER_API') {
-      forecasts = yield* retrieveWeatherFromMetaweather(location)
-    } else if (action.payload.weatherApi === 'WEATHERBIT_API') {
-      forecasts = yield* retrieveWeatherFromWeatherbit(location)
+    if (weatherApi === 'METAWEATHER_API') {
+      forecasts = yield * retrieveWeatherFromMetaweather(location)
+    } else if (weatherApi === 'WEATHERBIT_API') {
+      forecasts = yield * retrieveWeatherFromWeatherbit(location)
     }
     yield put({ type: GET_WEATHER_SUCCESS, payload: forecasts })
   } catch (e) {
@@ -33,6 +36,7 @@ function* retrieveWeatherFromMetaweather(location) {
   let response = yield fetch(url).then(response => response.json())
   const [first] = response
   const { woeid } = first
+  console.log('test')
   const currentDate = moment()
   for (let i = 0; i < FORECAST_DAYS; i++) {
     const day = currentDate.date()
@@ -42,13 +46,13 @@ function* retrieveWeatherFromMetaweather(location) {
     response = yield fetch(url).then(response => response.json())
     const [dayForecast] = response
     forecasts.push({
-      dayOfWeek: getDayOfWeek(currentDate),
       date: formatDate(currentDate),
+      dayOfWeek: getDayOfWeek(currentDate),
       weatherDescription: dayForecast.weather_state_name,
-      temperature: toCelcius(dayForecast.min_temp),
+      temperature: dayForecast.min_temp,
       precipitation: dayForecast.visibility,
       humidity: dayForecast.humidity,
-      wind: dayForecast.wind_speed
+      wind: dayForecast.wind_speed,
     })
     currentDate.add(1, 'day')
   }
@@ -68,7 +72,7 @@ function* retrieveWeatherFromWeatherbit(location) {
       dayOfWeek: getDayOfWeek(currentDate),
       date: formatDate(currentDate),
       weatherDescription: forecast.weather.description,
-      temperature: toCelcius(forecast.temp),
+      temperature: forecast.temp,
       precipitation: forecast.precip,
       humidity: forecast.clouds,
       wind: forecast.wind_spd

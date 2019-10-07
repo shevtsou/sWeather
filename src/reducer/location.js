@@ -1,4 +1,11 @@
-import { GET_CURRENT_LOCATION, GET_CURRENT_LOCATION_SUCCESS, GET_CURRENT_LOCATION_FAIL } from '../constants/actions'
+import {
+  GET_CURRENT_LOCATION,
+  GET_CURRENT_LOCATION_SUCCESS,
+  GET_CURRENT_LOCATION_FAIL,
+  CHANGE_LOCATION,
+  CHANGE_LOCATION_SUCCESS,
+  CHANGE_LOCATION_FAIL,
+} from '../constants/actions'
 
 const initialState = {
   location: {
@@ -8,7 +15,7 @@ const initialState = {
     longitude: 0,
   },
   isFetching: false,
-  error: '',
+  error: ''
 }
 
 export default function (state = initialState, action) {
@@ -25,6 +32,23 @@ export default function (state = initialState, action) {
         isFetching: true,
       }
     case GET_CURRENT_LOCATION_FAIL:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload,
+      }
+    case CHANGE_LOCATION:
+      return {
+        ...state,
+        isFetching: true,
+      }
+    case CHANGE_LOCATION_SUCCESS:
+      return {
+        ...state,
+        location: { ...action.payload },
+        isFetching: false,
+      }
+    case CHANGE_LOCATION_FAIL:
       return {
         ...state,
         isFetching: false,
