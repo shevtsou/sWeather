@@ -3,16 +3,23 @@ import WeatherBlock from '@/components/forms/weather-block'
 import { Divider, Spin, Icon } from 'antd'
 import { CLOUDY, SUNNY, RAINY, FOG } from '../../../constants/weather';
 import { connect } from 'react-redux'
+import styled from 'styled-components'
+import Loader from '@/components/blocks/global/Loader'
+
+const StyledLoader = styled(Loader)`
+  position: static;
+  display: flex;
+  align-items: center;
+  height: 20vh;
+  justify-content: center;
+`
 
 class WeatherList extends React.Component {
 
   render () {
     const { weather, isFetching } = this.props.weather
     if (isFetching) {
-      const loadingIcon = <Icon type="loading" style={{ fontSize: 80 }} spin />
-      const spin = <Spin style={{ height: '30vh', display: 'flex', alignItems: 'center' }} indicator={loadingIcon} />
-    
-      return spin
+      return <StyledLoader />
     } else {
       return (
         <div
