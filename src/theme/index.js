@@ -10,8 +10,8 @@ export default {
   colors: {
     background: '#ffffff',
     backgroundDark: '#f9f9f9',
-    primary: '#fe2419',
-    primaryDark: '#d4251c',
+    primary: '#1890ff',
+    primaryDark: '#096dd9',
     secondary: '#26499d',
     secondaryLight: 'rgba(38, 73, 157, 0.73)',
     font: '#222222',
