@@ -24,8 +24,8 @@ export default {
     weryBig: '50px',
   },
   letterSpacing: {
-    normal: 'normal',
     caps: '0.25em',
+    normal: 'normal',
   },
   fontWeights: {
     light: 300,

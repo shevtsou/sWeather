@@ -7,17 +7,14 @@ import { CLOUDY, SUNNY, RAINY, FOG } from '../../../constants/weather'
 import styled from 'styled-components'
 
 function getIconByWeatherName (weather) {
-  switch (weather) {
-    case CLOUDY:
-      return WiCloud
-    case SUNNY:
-      return WiDaySunny
-    case RAINY:
-      return WiRain
-    case FOG:
-      return WiFog
-    default:
-      return WiAlien
+  if (weather.toLowerCase().includes('cloud')) {
+    return WiCloud
+  } else if (weather.toLowerCase().includes('clear')) {
+    return WiDaySunny
+  } else if (weather.toLowerCase().includes('shower') || weather.toLowerCase().includes('rain')) {
+    return WiRain
+  } else {
+    return WiAlien
   }
 }
 
