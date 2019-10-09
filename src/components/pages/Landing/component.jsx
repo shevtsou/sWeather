@@ -1,8 +1,8 @@
 import React from 'react'
 
 import StandardLayout from '@/components/layouts/Standard'
-import WeatherList from '@/components/forms/weather-list'
-import Location from '@/components/forms/location'
+import WeatherList from '@/components/blocks/common/WeatherList'
+import Location from '@/components/blocks/common/Location'
 
 const LandingPage = () => (
   <StandardLayout>

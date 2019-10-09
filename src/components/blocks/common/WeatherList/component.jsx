@@ -1,5 +1,5 @@
 import React from 'react'
-import WeatherBlock from '@/components/forms/weather-block'
+import WeatherBlock from '@/components/blocks/common/WeatherBlock'
 import { Divider } from 'antd'
 import { connect } from 'react-redux'
 import styled from 'styled-components'

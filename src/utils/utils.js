@@ -16,7 +16,3 @@ export function getDayOfWeek(date) {
   }
   return moment(date).format('ddd')
 }
-
-export function toCelcius (tempreture) {
-  return (tempreture - 32) * 5 / 9
-}

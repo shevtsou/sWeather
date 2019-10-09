@@ -1,9 +1,9 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import Header from './styles'
-import SearchBar from '@/components/forms/search-bar'
-import LocationButton from '../../../forms/locationButton'
-import WeatherApiSelect from '../../common/weatherApiSelect'
+import SearchBar from '@/components/forms/SearchBar'
+import LocationButton from '../../common/LocationButton'
+import WeatherApiSelect from '../../common/WeatherApiSelect'
 import styled from 'styled-components'
 
 const Title = styled.div`
