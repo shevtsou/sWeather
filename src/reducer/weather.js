@@ -1,5 +1,5 @@
 import { GET_WEATHER, GET_WEATHER_SUCCESS, GET_WEATHER_FAIL, CHANGE_WEATHER_API } from '../constants/actions'
-import { METAWEATHER_API, WEATHERBIT_API } from '../constants'
+import { METAWEATHER_API } from '../constants'
 
 const initialState = {
   weather: [],

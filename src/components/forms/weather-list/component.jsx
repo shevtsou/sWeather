@@ -1,7 +1,6 @@
 import React from 'react'
 import WeatherBlock from '@/components/forms/weather-block'
-import { Divider, Spin, Icon } from 'antd'
-import { CLOUDY, SUNNY, RAINY, FOG } from '../../../constants/weather';
+import { Divider } from 'antd'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import Loader from '@/components/blocks/global/Loader'

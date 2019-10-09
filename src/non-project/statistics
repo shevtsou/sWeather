@@ -25,7 +25,7 @@ weather api select 2 5 3
 !center search box
 !to celcius
 
-add search bar functionality 2 6 _
+add search bar functionality 2 6 4
 
 add props type
 
@@ -36,3 +36,8 @@ replace with
     const token = yield select(getToken)
 
 !fix current location
+
+ant design 7
+!change theme
+!fix location state
+!rename weather to forecsts in weather state

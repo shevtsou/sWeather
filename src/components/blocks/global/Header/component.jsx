@@ -4,7 +4,6 @@ import Header from './styles'
 import SearchBar from '@/components/forms/search-bar'
 import LocationButton from '../../../forms/locationButton'
 import WeatherApiSelect from '../../common/weatherApiSelect'
-import { Button, Icon } from 'antd'
 import styled from 'styled-components'
 
 const Title = styled.div`

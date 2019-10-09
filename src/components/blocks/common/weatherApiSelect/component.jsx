@@ -5,15 +5,15 @@ import {
   WEATHERBIT_API
 } from '../../../../constants/whether-api'
 import { connect } from 'react-redux'
-import { changeWeatherApi, getWeather, getLocation } from '../../../../actions'
-import { Button, Icon, Select } from 'antd'
+import { changeWeatherApi, getWeather } from '../../../../actions'
+import { Select } from 'antd'
 const { Option } = Select
 
 const WeatherApiSelect = function (props) {
   const { changeWeatherApi, getWeather, weatherApi, location } = props
   return (
     <Select
-      defaultValue={weatherApi}
+      value={weatherApi}
       size="large"
       style={{ width: 230 }}
       onChange={api => {

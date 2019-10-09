@@ -5,19 +5,23 @@ import Header from '@/components/blocks/global/Header'
 import Wrapper from '@/components/blocks/global/Wrapper'
 import Main from '@/components/blocks/global/Main'
 import Footer from '@/components/blocks/global/Footer'
-import { getWeather } from '../../../actions/weather'
+import { loadDataFromStorage } from '../../../actions/storage'
+import { connect } from 'react-redux'
 
-function test () {
-  getWeather('test')
+class StandardLayout extends React.Component {
+  componentDidMount() {
+    this.props.loadDataFromStorage()
+  }
+  render(children) {
+    return (
+      <Wrapper>
+        <Header />
+        <Main>{this.props.children}</Main>
+        <Footer />
+      </Wrapper>
+    )
+  }
 }
-const StandardLayout = ({ children }) => (
-  <Wrapper>
-    {test}
-    <Header />
-    <Main>{children}</Main>
-    <Footer />
-  </Wrapper>
-)
 
 StandardLayout.propTypes = {
   children: pt.arrayOf(
@@ -25,4 +29,9 @@ StandardLayout.propTypes = {
   )
 }
 
-export default StandardLayout
+export default connect(
+  null,
+  {
+    loadDataFromStorage
+  }
+)(StandardLayout)

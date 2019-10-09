@@ -1,6 +1,6 @@
 import React from 'react'
 import { StyledAutoComplete, StyledButton, SearchForm } from './styles'
-import { Icon, Input, AutoComplete } from 'antd'
+import { Icon, Input } from 'antd'
 import { connect } from 'react-redux'
 import { getWeather } from '../../../actions/weather'
 import { changeLocation } from '../../../actions'
@@ -21,9 +21,9 @@ class Search extends React.Component {
     this.setState({ searchTerm: value })
   }
 
-  render() {
+  render () {
     const { searchTerm } = this.state
-    const { location, getWeather, changeLocation } = this.props
+    const { changeLocation } = this.props
     return (
       <SearchForm onSubmit={this.handleSearch}>
         <StyledAutoComplete

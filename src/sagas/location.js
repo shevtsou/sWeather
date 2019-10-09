@@ -5,8 +5,8 @@ import {
   GET_CURRENT_LOCATION_FAIL,
   CHANGE_LOCATION_SUCCESS,
   CHANGE_LOCATION_FAIL,
-  GET_CURRENT_LOCATION,
-  GET_WEATHER
+  GET_WEATHER,
+  SAVE_DATA_TO_STORAGE
 } from '../constants/actions'
 import {
   GEOCODING_API_ACCESS_KEY,
@@ -41,6 +41,9 @@ export function* retrieveCurrentLocation() {
     yield put({
       type: GET_WEATHER,
     })
+    yield put({
+      type: SAVE_DATA_TO_STORAGE,
+    })
   } catch (e) {
     yield put({ type: GET_CURRENT_LOCATION_FAIL, payload: e })
   }
@@ -68,6 +71,9 @@ export function* changeLocation(action) {
 
     yield put({
       type: GET_WEATHER,
+    })
+    yield put({
+      type: SAVE_DATA_TO_STORAGE,
     })
   } catch (e) {
     yield put({ type: CHANGE_LOCATION_FAIL, payload: e })

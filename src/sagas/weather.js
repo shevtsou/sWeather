@@ -1,14 +1,12 @@
 import {
-  METAWEATHER_API,
-  WEATHERBIT_API,
   WEATHERBIT_API_KEY,
   FORECAST_DAYS,
   CORS_PROXY_URL
 } from '../constants/whether-api'
 import { put, select } from 'redux-saga/effects'
 
-import { GET_WEATHER_SUCCESS, GET_WEATHER_FAIL } from '../constants/actions'
-import { formatDate, getDayOfWeek, toCelcius } from '../utils/utils'
+import { GET_WEATHER_SUCCESS, GET_WEATHER_FAIL, SAVE_DATA_TO_STORAGE } from '../constants/actions'
+import { formatDate, getDayOfWeek } from '../utils/utils'
 import moment from 'moment'
 
 const getLocation = state => state.location.location
@@ -25,6 +23,9 @@ export function* retrieveWeather(action) {
       forecasts = yield * retrieveWeatherFromWeatherbit(location)
     }
     yield put({ type: GET_WEATHER_SUCCESS, payload: forecasts })
+    yield put({
+      type: SAVE_DATA_TO_STORAGE,
+    })
   } catch (e) {
     yield put({ type: GET_WEATHER_FAIL, payload: e })
   }
@@ -36,7 +37,6 @@ function* retrieveWeatherFromMetaweather(location) {
   let response = yield fetch(url).then(response => response.json())
   const [first] = response
   const { woeid } = first
-  console.log('test')
   const currentDate = moment()
   for (let i = 0; i < FORECAST_DAYS; i++) {
     const day = currentDate.date()

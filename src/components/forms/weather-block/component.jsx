@@ -2,8 +2,7 @@ import Wrapper from './styles'
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import { WiCloud, WiRain, WiFog, WiDaySunny, WiAlien } from 'react-icons/wi'
-import { CLOUDY, SUNNY, RAINY, FOG } from '../../../constants/weather'
+import { WiCloud, WiRain, WiDaySunny, WiAlien } from 'react-icons/wi'
 import styled from 'styled-components'
 
 function getIconByWeatherName (weather) {
