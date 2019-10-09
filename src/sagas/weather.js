@@ -9,7 +9,7 @@ import { GET_WEATHER_SUCCESS, GET_WEATHER_FAIL, SAVE_DATA_TO_STORAGE } from '../
 import { formatDate, getDayOfWeek } from '../utils/utils'
 import moment from 'moment'
 
-const getLocation = state => state.location.location
+const getLocation = state => state.location
 const getWeatherApi = state => state.weather.weatherApi
 
 export function* retrieveWeather(action) {

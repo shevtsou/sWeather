@@ -22,7 +22,7 @@ function saveData(state) {
     'sWeatherData',
     JSON.stringify({
       date: moment(),
-      location: state.location.location,
+      location: state.location,
       weather: {
         forecasts: state.weather.weather,
         weatherApi: state.weather.weatherApi,
@@ -40,7 +40,7 @@ function loadData(state) {
     }
     return {
       location: {
-        location: retrievedData.location,
+        ...retrievedData.location,
         isFetching: false,
         error: ''
       },

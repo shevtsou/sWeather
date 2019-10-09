@@ -10,11 +10,13 @@ const Location = styled.div`
 
 const LocationWrapper = function (props) {
   const { city, country } = props.location
-  if (!city && !country) {
-    return <Location>No location selected</Location>
-  } else {
-    return <Location>{city}, {country}</Location>
-  }
+  return (
+    <Location>
+      {
+        [city, country].filter(c => c).join(', ')
+      }
+    </Location>
+  )
 }
 
-export default connect(state => ({ location: state.location.location }))(LocationWrapper)
+export default connect(state => ({ location: state.location }))(LocationWrapper)

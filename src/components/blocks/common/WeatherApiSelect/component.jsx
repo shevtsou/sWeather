@@ -30,7 +30,7 @@ const WeatherApiSelect = function (props) {
 export default connect(
   state => ({
     weatherApi: state.weather.weatherApi,
-    location: state.location.location,
+    location: state.location,
   }),
   { changeWeatherApi, getWeather }
 )(WeatherApiSelect)

@@ -8,14 +8,12 @@ import {
 } from '../constants/actions'
 
 const initialState = {
-  location: {
-    city: '',
-    country: '',
-    latitude: 0,
-    longitude: 0,
-  },
+  city: '',
+  country: '',
+  latitude: 0,
+  longitude: 0,
   isFetching: false,
-  error: ''
+  error: '',
 }
 
 export default function (state = initialState, action) {
@@ -28,7 +26,7 @@ export default function (state = initialState, action) {
     case GET_CURRENT_LOCATION_SUCCESS:
       return {
         ...state,
-        location: { ...action.payload },
+        ...action.payload,
         isFetching: true,
       }
     case GET_CURRENT_LOCATION_FAIL:
@@ -45,7 +43,7 @@ export default function (state = initialState, action) {
     case CHANGE_LOCATION_SUCCESS:
       return {
         ...state,
-        location: { ...action.payload },
+        ...action.payload,
         isFetching: false,
       }
     case CHANGE_LOCATION_FAIL:
