@@ -1,5 +1,4 @@
 import {
-  WEATHERBIT_API_KEY,
   FORECAST_DAYS,
   CORS_PROXY_URL,
 } from '../constants/whether-api'
@@ -66,7 +65,7 @@ function * retrieveWeatherFromMetaweather (location) {
 function * retrieveWeatherFromWeatherbit (location) {
   const forecasts = []
 
-  const url = `${CORS_PROXY_URL}/https://api.weatherbit.io/v2.0/forecast/daily?lat=${location.latitude}&lon=${location.longitude}&key=${WEATHERBIT_API_KEY}`
+  const url = `${CORS_PROXY_URL}/https://api.weatherbit.io/v2.0/forecast/daily?lat=${location.latitude}&lon=${location.longitude}&key=${process.env.REACT_APP_WEATHERBIT_API_KEY}`
   const response = yield fetch(url).then(response => response.json())
 
   const currentDate = moment()

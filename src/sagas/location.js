@@ -8,10 +8,6 @@ import {
   GET_WEATHER,
   SAVE_DATA_TO_STORAGE
 } from '../constants/actions'
-import {
-  GEOCODING_API_ACCESS_KEY,
-  OPENCAGEDATE_API_KEY
-} from '../constants/whether-api'
 
 export function* retrieveCurrentLocation() {
   try {
@@ -23,7 +19,7 @@ export function* retrieveCurrentLocation() {
     })
     const { latitude, longitude } = response.coords
     const geoCodeResponse = yield fetch(
-      `https://maps.googleapis.com/maps/api/geocode/json?result_type=locality&latlng=${response.coords.latitude},${longitude}&key=${GEOCODING_API_ACCESS_KEY}`
+      `https://maps.googleapis.com/maps/api/geocode/json?result_type=locality&latlng=${response.coords.latitude},${longitude}&key=${process.env.REACT_APP_GEOCODING_API_ACCESS_KEY}`
     ).then(response => response.json())
     const cityName = geoCodeResponse.results[0].address_components[0].long_name
     const countryName = geoCodeResponse.results[0].address_components.slice(
@@ -53,7 +49,7 @@ export function* changeLocation(action) {
   const { query } = action.payload
 
   try {
-    const url = `https://api.opencagedata.com/geocode/v1/json?q=${query}&key=${OPENCAGEDATE_API_KEY}`
+    const url = `https://api.opencagedata.com/geocode/v1/json?q=${query}&key=${process.env.REACT_APP_OPENCAGEDATE_API_KEY}`
     const locationResponse = yield fetch(url).then(response => response.json())
     const [location] = locationResponse.results
     yield put({
