@@ -18,6 +18,9 @@ const ResponsiveSelect = styled(Select)`
       display: none;
     }
   }
+  .ant-select-selection-selected-value {
+    padding-right: 5px;
+  }
 `
 const WeatherApiSelect = function (props) {
   const { changeWeatherApi, weatherApi } = props
@@ -25,7 +28,7 @@ const WeatherApiSelect = function (props) {
     <ResponsiveSelect
       value={weatherApi}
       size="large"
-      style={{ width: 150, margin: '0.2rem' }}
+      style={{ width: 160, margin: '0.2rem' }}
       onChange={api => {
         changeWeatherApi(api)
       }}
