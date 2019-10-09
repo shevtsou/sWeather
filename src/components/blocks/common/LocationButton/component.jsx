@@ -4,11 +4,20 @@ import { connect } from 'react-redux'
 import { getLocation, getWeather } from '../../../../actions'
 import { Button, Icon } from 'antd'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
+
+const ResponsiveButton = styled(Button)`
+  @media only screen and (max-width: 400px) {
+    &.ant-btn-lg {
+      display: none;
+    }
+  }
+`
 
 const LocationButton = function (props) {
   const { getLocation } = props
   return (
-    <Button
+    <ResponsiveButton
       style={{ margin: '0 0.3rem 0 ' }}
       type="secondary"
       size="large"
@@ -17,7 +26,7 @@ const LocationButton = function (props) {
       }}
     >
       <Icon style={{ fontSize: '1.5rem' }} type="environment" />
-    </Button>
+    </ResponsiveButton>
   )
 }
 LocationButton.propTypes = {

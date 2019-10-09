@@ -8,23 +8,31 @@ import { connect } from 'react-redux'
 import { changeWeatherApi, getWeather } from '../../../../actions'
 import { Select } from 'antd'
 import PropTypes from 'prop-types'
+import styled from 'styled-components'
 
 const { Option } = Select
 
+const ResponsiveSelect = styled(Select)`
+  @media only screen and (max-width: 500px) {
+    &.ant-select-lg {
+      display: none;
+    }
+  }
+`
 const WeatherApiSelect = function (props) {
   const { changeWeatherApi, weatherApi } = props
   return (
-    <Select
+    <ResponsiveSelect
       value={weatherApi}
       size="large"
-      style={{ width: 230 }}
+      style={{ width: 150, margin: '0.2rem' }}
       onChange={api => {
         changeWeatherApi(api)
       }}
     >
       <Option value={METAWEATHER_API}>Meta Weather Api</Option>
       <Option value={WEATHERBIT_API}>Weather Bit Api</Option>
-    </Select>
+    </ResponsiveSelect>
   )
 }
 WeatherApiSelect.propTypes = {

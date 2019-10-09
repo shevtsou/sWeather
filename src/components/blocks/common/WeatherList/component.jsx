@@ -42,17 +42,10 @@ class WeatherList extends React.Component {
 }
 
 WeatherList.propTypes = {
-  weather: PropTypes.arrayOf(
-    PropTypes.shape({
-      date: PropTypes.string,
-      dayOfWeek: PropTypes.string,
-      weatherDescription: PropTypes.string,
-      temperature: PropTypes.number,
-      precipitation: PropTypes.number,
-      humidity: PropTypes.number,
-      wind: PropTypes.number,
-    })
-  ),
+  weather: PropTypes.shape({
+    weather: PropTypes.array,
+    isFetching: PropTypes.bool,
+  }),
 }
 
 export default connect(state => ({

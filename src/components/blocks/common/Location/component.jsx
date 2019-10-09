@@ -6,6 +6,9 @@ import PropTypes from 'prop-types'
 
 const Location = styled.div`
   font-size: ${props => props.theme.fontSizes.weryBig};
+  @media only screen and (max-width: 500px) {
+    font-size: ${props => props.theme.fontSizes.big};
+  }
   font-family: ${props => props.theme.fontFamily};
 `
 

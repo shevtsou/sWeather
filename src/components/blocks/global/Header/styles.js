@@ -2,9 +2,9 @@ import styled from 'styled-components'
 
 export default styled.header`
   height: 5vh;
-  width: 80vh;
+  width: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
   align-items: center;
   margin-top: 20px;
   font-size: ${props => props.theme.fontSizes.weryBig};

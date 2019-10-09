@@ -6,10 +6,10 @@ import { WiCloud, WiRain, WiDaySunny, WiAlien } from 'react-icons/wi'
 import styled from 'styled-components'
 
 const CentralizedBlock = styled.div`
-  display: 'flex',
-  flexFlow: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
+  display: 'flex';
+  flex-flow: 'column';
+  justify-content: 'center';
+  align-items: 'center';
 `
 
 const Label = styled.div`
@@ -33,6 +33,9 @@ const WeatherCharacteristics = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
+  @media only screen and (max-width: 500px) {
+    display: none;
+  }
 `
 
 function getIconByWeatherName (weather) {

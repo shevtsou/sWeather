@@ -6,7 +6,7 @@ import Location from '@/components/blocks/common/Location'
 
 const LandingPage = () => (
   <StandardLayout>
-    <Location location="Vitebsk" />
+    <Location />
     <WeatherList />
   </StandardLayout>
 )

@@ -4,6 +4,7 @@ import { Button, AutoComplete } from 'antd'
 const SearchForm = styled.form`
   width: 50vh;
   display: flex;
+  margin-top: -0.2rem;
 `
 
 const StyledAutoComplete = styled(AutoComplete)`
