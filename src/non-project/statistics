@@ -38,6 +38,5 @@ replace with
 !fix current location
 
 ant design 7
-!change theme
 !fix location state
 !rename weather to forecsts in weather state

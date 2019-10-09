@@ -2,6 +2,8 @@ import {
   SAVE_DATA_TO_STORAGE,
   LOAD_DATA_FROM_STORAGE
 } from '../constants/actions'
+import moment from 'moment'
+import { MAX_DATA_TIME_IN_HOURS } from '../constants/storage'
 
 export default function(state, action) {
   switch (action.type) {
@@ -19,6 +21,7 @@ function saveData(state) {
   localStorage.setItem(
     'sWeatherData',
     JSON.stringify({
+      date: moment(),
       location: state.location.location,
       weather: {
         forecasts: state.weather.weather,
@@ -30,10 +33,9 @@ function saveData(state) {
 
 function loadData(state) {
   try {
-    console.log(state);
-    
     const retrievedData = JSON.parse(localStorage.getItem('sWeatherData'))
-    if (retrievedData === null) {
+    const dataTime = moment.duration(moment().diff(retrievedData.date)).asHours()
+    if (retrievedData === null || dataTime > MAX_DATA_TIME_IN_HOURS) {
       return state
     }
     return {
