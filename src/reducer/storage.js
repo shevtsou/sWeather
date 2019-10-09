@@ -42,13 +42,13 @@ function loadData(state) {
       location: {
         ...retrievedData.location,
         isFetching: false,
-        error: ''
+        error: '',
       },
       weather: {
         weather: retrievedData.weather.forecasts,
         weatherApi: retrievedData.weather.weatherApi,
         isFetching: false,
-        error: ''
+        error: '',
       }
     }
   } catch (e) {

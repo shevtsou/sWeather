@@ -40,3 +40,4 @@ replace with
 ant design 7
 !fix location state
 !rename weather to forecsts in weather state
+!/home/oadmin/sources/sWeather/src/components/blocks/common/WeatherApiSelect/component.jsx
