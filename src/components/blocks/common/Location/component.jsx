@@ -13,13 +13,20 @@ const Location = styled.div`
 `
 
 const LocationWrapper = function (props) {
-  const { city, country } = props.location
+  const { city, country, error } = props.location
+  if (error) {
+    return 'Something went wrong...'
+  }
+  if (!city && !country) {
+    return <Location>Location not found</Location>
+  }
   return <Location>{[city, country].filter(c => c).join(', ')}</Location>
 }
 LocationWrapper.propTypes = {
   location: PropTypes.shape({
     city: PropTypes.string,
     country: PropTypes.string,
+    error: PropTypes.string,
   }),
 }
 

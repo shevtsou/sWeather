@@ -18,6 +18,10 @@ const getWeatherApi = state => state.weather.weatherApi
 export function * retrieveWeather (action) {
   let forecasts = []
   const location = yield select(getLocation)
+  if (!location) {
+    yield put({ type: GET_WEATHER_SUCCESS, payload: {} })
+    return
+  }
   const weatherApi = yield select(getWeatherApi)
   try {
     if (weatherApi === 'METAWEATHER_API') {

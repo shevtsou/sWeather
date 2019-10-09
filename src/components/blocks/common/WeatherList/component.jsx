@@ -16,7 +16,10 @@ const StyledLoader = styled(Loader)`
 
 class WeatherList extends React.Component {
   render () {
-    const { weather, isFetching } = this.props.weather
+    const { weather, isFetching, error } = this.props.weather
+    if (error) {
+      return 'Something went wrong...'
+    }
     if (isFetching) {
       return <StyledLoader />
     } else {
