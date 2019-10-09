@@ -7,6 +7,8 @@ import {
 import { connect } from 'react-redux'
 import { changeWeatherApi, getWeather } from '../../../../actions'
 import { Select } from 'antd'
+import PropTypes from 'prop-types'
+
 const { Option } = Select
 
 const WeatherApiSelect = function (props) {
@@ -24,6 +26,10 @@ const WeatherApiSelect = function (props) {
       <Option value={WEATHERBIT_API}>Weather Bit Api</Option>
     </Select>
   )
+}
+WeatherApiSelect.propTypes = {
+  changeWeatherApi: PropTypes.func,
+  weatherApi: PropTypes.string,
 }
 
 export default connect(

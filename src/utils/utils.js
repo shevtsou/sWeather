@@ -1,10 +1,10 @@
 import moment from 'moment'
 
-export function formatDate(date) {
+export function formatDate (date) {
   return moment(date).format('MMM D')
 }
 
-export function getDayOfWeek(date) {
+export function getDayOfWeek (date) {
   const today = moment()
   const tomorrow = moment().add(1, 'day')
   const dateMoment = moment(date)

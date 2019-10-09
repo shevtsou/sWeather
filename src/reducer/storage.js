@@ -1,11 +1,11 @@
 import {
   SAVE_DATA_TO_STORAGE,
-  LOAD_DATA_FROM_STORAGE
+  LOAD_DATA_FROM_STORAGE,
 } from '../constants/actions'
 import moment from 'moment'
 import { MAX_DATA_TIME_IN_HOURS } from '../constants/storage'
 
-export default function(state, action) {
+export default function (state, action) {
   switch (action.type) {
     case SAVE_DATA_TO_STORAGE:
       saveData(state)
@@ -17,7 +17,7 @@ export default function(state, action) {
   }
 }
 
-function saveData(state) {
+function saveData (state) {
   localStorage.setItem(
     'sWeatherData',
     JSON.stringify({
@@ -26,15 +26,17 @@ function saveData(state) {
       weather: {
         forecasts: state.weather.weather,
         weatherApi: state.weather.weatherApi,
-      }
+      },
     })
   )
 }
 
-function loadData(state) {
+function loadData (state) {
   try {
     const retrievedData = JSON.parse(localStorage.getItem('sWeatherData'))
-    const dataTime = moment.duration(moment().diff(retrievedData.date)).asHours()
+    const dataTime = moment
+      .duration(moment().diff(retrievedData.date))
+      .asHours()
     if (retrievedData === null || dataTime > MAX_DATA_TIME_IN_HOURS) {
       return state
     }
@@ -49,7 +51,7 @@ function loadData(state) {
         weatherApi: retrievedData.weather.weatherApi,
         isFetching: false,
         error: '',
-      }
+      },
     }
   } catch (e) {
     console.log('Error while loading data: ', e)

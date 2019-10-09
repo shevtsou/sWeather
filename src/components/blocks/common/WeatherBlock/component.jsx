@@ -5,18 +5,6 @@ import PropTypes from 'prop-types'
 import { WiCloud, WiRain, WiDaySunny, WiAlien } from 'react-icons/wi'
 import styled from 'styled-components'
 
-function getIconByWeatherName (weather) {
-  if (weather.toLowerCase().includes('cloud')) {
-    return WiCloud
-  } else if (weather.toLowerCase().includes('clear')) {
-    return WiDaySunny
-  } else if (weather.toLowerCase().includes('shower') || weather.toLowerCase().includes('rain')) {
-    return WiRain
-  } else {
-    return WiAlien
-  }
-}
-
 const CentralizedBlock = styled.div`
   display: 'flex',
   flexFlow: 'column',
@@ -46,6 +34,22 @@ const WeatherCharacteristics = styled.div`
   flex-flow: column;
   align-items: center;
 `
+
+function getIconByWeatherName (weather) {
+  if (weather.toLowerCase().includes('cloud')) {
+    return WiCloud
+  } else if (weather.toLowerCase().includes('clear')) {
+    return WiDaySunny
+  } else if (
+    weather.toLowerCase().includes('shower') ||
+    weather.toLowerCase().includes('rain')
+  ) {
+    return WiRain
+  } else {
+    return WiAlien
+  }
+}
+
 function WeatherBlock (props) {
   const WeatherIcon = getIconByWeatherName(props.weatherDescription)
   return (
@@ -57,9 +61,7 @@ function WeatherBlock (props) {
 
       <CentralizedBlock>
         <WeatherIcon size={100} />
-        <Label>
-          {props.weatherDescription.toLowerCase()}{' '}
-        </Label>
+        <Label>{props.weatherDescription.toLowerCase()} </Label>
       </CentralizedBlock>
 
       <TempretureIdicator>

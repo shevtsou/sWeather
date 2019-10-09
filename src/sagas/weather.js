@@ -1,18 +1,22 @@
 import {
   WEATHERBIT_API_KEY,
   FORECAST_DAYS,
-  CORS_PROXY_URL
+  CORS_PROXY_URL,
 } from '../constants/whether-api'
 import { put, select } from 'redux-saga/effects'
 
-import { GET_WEATHER_SUCCESS, GET_WEATHER_FAIL, SAVE_DATA_TO_STORAGE } from '../constants/actions'
+import {
+  GET_WEATHER_SUCCESS,
+  GET_WEATHER_FAIL,
+  SAVE_DATA_TO_STORAGE,
+} from '../constants/actions'
 import { formatDate, getDayOfWeek } from '../utils/utils'
 import moment from 'moment'
 
 const getLocation = state => state.location
 const getWeatherApi = state => state.weather.weatherApi
 
-export function* retrieveWeather(action) {
+export function * retrieveWeather (action) {
   let forecasts = []
   const location = yield select(getLocation)
   const weatherApi = yield select(getWeatherApi)
@@ -31,7 +35,7 @@ export function* retrieveWeather(action) {
   }
 }
 
-function* retrieveWeatherFromMetaweather(location) {
+function * retrieveWeatherFromMetaweather (location) {
   const forecasts = []
   let url = `${CORS_PROXY_URL}/https://www.metaweather.com/api/location/search/?lattlong=${location.latitude},${location.longitude}`
   let response = yield fetch(url).then(response => response.json())
@@ -59,7 +63,7 @@ function* retrieveWeatherFromMetaweather(location) {
   return forecasts
 }
 
-function* retrieveWeatherFromWeatherbit(location) {
+function * retrieveWeatherFromWeatherbit (location) {
   const forecasts = []
 
   const url = `${CORS_PROXY_URL}/https://api.weatherbit.io/v2.0/forecast/daily?lat=${location.latitude}&lon=${location.longitude}&key=${WEATHERBIT_API_KEY}`
@@ -75,7 +79,7 @@ function* retrieveWeatherFromWeatherbit(location) {
       temperature: forecast.temp,
       precipitation: forecast.precip,
       humidity: forecast.clouds,
-      wind: forecast.wind_spd
+      wind: forecast.wind_spd,
     })
     currentDate.add(1, 'day')
   }

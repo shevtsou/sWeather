@@ -9,10 +9,11 @@ import { loadDataFromStorage } from '../../../actions/storage'
 import { connect } from 'react-redux'
 
 class StandardLayout extends React.Component {
-  componentDidMount() {
+  componentDidMount () {
     this.props.loadDataFromStorage()
   }
-  render(children) {
+
+  render (children) {
     return (
       <Wrapper>
         <Header />
@@ -24,14 +25,13 @@ class StandardLayout extends React.Component {
 }
 
 StandardLayout.propTypes = {
-  children: pt.arrayOf(
-    pt.oneOfType([pt.string.isRequired, pt.element.isRequired])
-  )
+  children: pt.arrayOf(pt.oneOfType([pt.string.isRequired, pt.element])),
+  loadDataFromStorage: pt.func,
 }
 
 export default connect(
   null,
   {
-    loadDataFromStorage
+    loadDataFromStorage,
   }
 )(StandardLayout)

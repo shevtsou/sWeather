@@ -4,6 +4,7 @@ import { Divider } from 'antd'
 import { connect } from 'react-redux'
 import styled from 'styled-components'
 import Loader from '@/components/blocks/global/Loader'
+import PropTypes from 'prop-types'
 
 const StyledLoader = styled(Loader)`
   position: static;
@@ -14,7 +15,6 @@ const StyledLoader = styled(Loader)`
 `
 
 class WeatherList extends React.Component {
-
   render () {
     const { weather, isFetching } = this.props.weather
     if (isFetching) {
@@ -38,10 +38,23 @@ class WeatherList extends React.Component {
         </div>
       )
     }
-
   }
 }
 
-export default connect(state => ({ 
-  weather: state.weather
- }))(WeatherList)
+WeatherList.propTypes = {
+  weather: PropTypes.arrayOf(
+    PropTypes.shape({
+      date: PropTypes.string,
+      dayOfWeek: PropTypes.string,
+      weatherDescription: PropTypes.string,
+      temperature: PropTypes.number,
+      precipitation: PropTypes.number,
+      humidity: PropTypes.number,
+      wind: PropTypes.number,
+    })
+  ),
+}
+
+export default connect(state => ({
+  weather: state.weather,
+}))(WeatherList)

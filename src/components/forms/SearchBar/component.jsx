@@ -4,20 +4,14 @@ import { Icon, Input } from 'antd'
 import { connect } from 'react-redux'
 import { getWeather } from '../../../actions/weather'
 import { changeLocation } from '../../../actions'
+import PropTypes from 'prop-types'
 
 class Search extends React.Component {
   state = {
-    searchTerm: ''
+    searchTerm: '',
   }
 
   handleChange = value => {
-    // this.setState({
-    //   dataSource: value
-    //     ? mockDataSource.filter(item =>
-    //         item.city.toLowerCase().includes(value.toLowerCase())
-    //       )
-    //     : []
-    // })
     this.setState({ searchTerm: value })
   }
 
@@ -44,12 +38,14 @@ class Search extends React.Component {
               >
                 <Icon type="search" />
               </StyledButton>
-            }
-          />
+            } />
         </StyledAutoComplete>
       </SearchForm>
     )
   }
+}
+Search.propTypes = {
+  changeLocation: PropTypes.func,
 }
 export default connect(
   state => ({

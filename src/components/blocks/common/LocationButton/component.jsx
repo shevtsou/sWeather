@@ -3,6 +3,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { getLocation, getWeather } from '../../../../actions'
 import { Button, Icon } from 'antd'
+import PropTypes from 'prop-types'
 
 const LocationButton = function (props) {
   const { getLocation } = props
@@ -11,7 +12,7 @@ const LocationButton = function (props) {
       style={{ margin: '0 0.3rem 0 ' }}
       type="secondary"
       size="large"
-      onClick={() => { 
+      onClick={() => {
         getLocation()
       }}
     >
@@ -19,7 +20,9 @@ const LocationButton = function (props) {
     </Button>
   )
 }
-
+LocationButton.propTypes = {
+  getLocation: PropTypes.func,
+}
 export default connect(
   state => ({ location: state.location.location }),
   { getLocation, getWeather }
