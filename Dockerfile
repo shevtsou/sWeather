@@ -1,10 +1,13 @@
-FROM node:8 as sweather
-WORKDIR /app
-COPY . ./
-RUN yarn
-RUN yarn build
+# base image
+FROM node:12.2.0-alpine
 
-FROM nginx:alpine
-COPY --from=sweather /app/build /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# set working directory
+WORKDIR /app
+
+
+# install and cache app dependencies
+COPY package.json /app/package.json
+RUN yarn
+
+# start app
+CMD ["yarn", "start"]
