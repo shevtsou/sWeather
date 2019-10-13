@@ -9,7 +9,7 @@ export default {
   },
   colors: {
     background: '#ffffff',
-    backgroundDark: '#f9f9f9',
+    backgroundDark: '#ffffff',
     primary: '#ff0000',
     primaryDark: '#ff0000',
     secondary: '#c98b8bd0',

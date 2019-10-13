@@ -1,5 +1,5 @@
 import { put, call } from 'redux-saga/effects'
-import { getCurrentLocation, findLocationByCoordinates } from './api/location-api'
+import { getCurrentLocation, findLocationByCoordinates, getLocationByQuery } from './api/location-api'
 
 import {
   GET_CURRENT_LOCATION_SUCCESS,
@@ -44,9 +44,8 @@ export function * changeLocation (action) {
   const { query } = action.payload
 
   try {
-    const url = `https://api.opencagedata.com/geocode/v1/json?q=${query}&key=${process.env.REACT_APP_OPENCAGEDATE_API_KEY}`
-    const locationResponse = yield fetch(url).then(response => response.json())
-    const [location] = locationResponse.results
+    const response = yield call(getLocationByQuery, query)
+    const [location] = response.results
     if (!location) {
       yield put({
         type: CHANGE_LOCATION_SUCCESS,

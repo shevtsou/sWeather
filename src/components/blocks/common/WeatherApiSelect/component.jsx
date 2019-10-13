@@ -3,7 +3,7 @@ import React from 'react'
 import {
   METAWEATHER_API,
   WEATHERBIT_API,
-} from '../../../../constants/whether-api'
+} from '@/constants/weather-api'
 import { connect } from 'react-redux'
 import { changeWeatherApi, getWeather } from '../../../../actions'
 import { Select } from 'antd'
@@ -29,9 +29,7 @@ const WeatherApiSelect = function (props) {
       value={weatherApi}
       size="large"
       style={{ width: 160, margin: '0.2rem' }}
-      onChange={api => {
-        changeWeatherApi(api)
-      }}
+      onChange={changeWeatherApi}
     >
       <Option value={METAWEATHER_API}>Meta Weather Api</Option>
       <Option value={WEATHERBIT_API}>Weather Bit Api</Option>

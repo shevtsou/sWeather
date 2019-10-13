@@ -21,9 +21,7 @@ const LocationButton = function (props) {
       style={{ margin: '0 0.3rem 0 ' }}
       type="secondary"
       size="large"
-      onClick={() => {
-        getLocation()
-      }}
+      onClick={getLocation}
     >
       <Icon style={{ fontSize: '1.5rem' }} type="environment" />
     </ResponsiveButton>

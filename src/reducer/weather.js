@@ -4,7 +4,7 @@ import {
   GET_WEATHER_FAIL,
   CHANGE_WEATHER_API,
   CHANGE_WEATHER_API_FAIL,
-  CHANGE_WEATHER_API_SUCCESS
+  CHANGE_WEATHER_API_SUCCESS,
 } from '../constants/actions'
 import { METAWEATHER_API } from '../constants'
 
@@ -23,11 +23,12 @@ export default function (state = initialState, action) {
         isFetching: true,
       }
     case GET_WEATHER_SUCCESS:
-      return Object.assign({}, state, {
+      return {
+        ...state,
         weather: action.payload,
         isFetching: false,
         error: '',
-      })
+      }
     case GET_WEATHER_FAIL:
       return {
         ...state,
