@@ -5,7 +5,7 @@ import Header from '@/components/blocks/global/Header'
 import Wrapper from '@/components/blocks/global/Wrapper'
 import Main from '@/components/blocks/global/Main'
 import Footer from '@/components/blocks/global/Footer'
-import { loadDataFromStorage } from '../../../actions/storage'
+import { loadDataFromStorage } from '@/actions/storage'
 import { connect } from 'react-redux'
 
 class StandardLayout extends React.Component {

@@ -5,7 +5,7 @@ import {
   WEATHERBIT_API,
 } from '@/constants/weather-api'
 import { connect } from 'react-redux'
-import { changeWeatherApi, getWeather } from '../../../../actions'
+import { changeWeatherApi, getWeather } from '@/actions'
 import { Select } from 'antd'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'

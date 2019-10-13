@@ -2,8 +2,8 @@ import React from 'react'
 import { StyledAutoComplete, StyledButton, SearchForm } from './styles'
 import { Icon, Input } from 'antd'
 import { connect } from 'react-redux'
-import { getWeather } from '../../../actions/weather'
-import { changeLocation } from '../../../actions'
+import { getWeather } from '@/actions/weather'
+import { changeLocation } from '@/actions'
 import PropTypes from 'prop-types'
 
 class Search extends React.Component {
