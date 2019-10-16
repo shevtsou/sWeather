@@ -1,0 +1,2 @@
+- move proxy server to .env
+- enable eslint for whole app

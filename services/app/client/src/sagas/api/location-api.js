@@ -8,7 +8,8 @@ export function getCurrentLocation () {
 }
 
 export function findLocationByCoordinates (latitude, longitude) {
+  const url = `https://maps.googleapis.com/maps/api/geocode/json?result_type=locality&latlng=${latitude},${longitude}&key=${process.env.REACT_APP_GEOCODING_API_ACCESS_KEY}`
   return fetch(
-    `https://maps.googleapis.com/maps/api/geocode/json?result_type=locality&latlng=${latitude},${longitude}&key=${process.env.REACT_APP_GEOCODING_API_ACCESS_KEY}`
+    url
   ).then(response => response.json())
 }
