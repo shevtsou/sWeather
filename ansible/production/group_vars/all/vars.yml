@@ -1,0 +1,9 @@
+ansible_user: root
+ansible_ssh_pass: "{{ vault_ansible_ssh_pass }}"
+ansible_become_pass: "{{ vault_ansible_ssh_pass }}"
+ansible_python_interpreter: "/usr/bin/env python3"
+sweather_network: sweather_network
+catalor_user: root
+catalor_user_home: root
+app_catalog: "{{ catalor_user_home }}/sweather"
+env_file_path: "{{ app_catalog }}/.env"
