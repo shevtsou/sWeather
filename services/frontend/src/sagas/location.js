@@ -1,5 +1,6 @@
 import { put, call } from 'redux-saga/effects'
 import { getCurrentLocation, findLocationByCoordinates } from './api/location-api'
+import urlExists from 'url-exists'
 
 import {
   GET_CURRENT_LOCATION_SUCCESS,
@@ -40,9 +41,18 @@ export function * retrieveCurrentLocation () {
   }
 }
 
+
+function testPort(url) {
+  console.log('Testing: ' + url)
+
+  urlExists(url, function(err, exists) {
+    console.log(exists ? 'AVAILABLE!!!' : 'NOT AVAILABLE, error: ' + err); // true
+  })
+
+}
+
 export function * changeLocation (action) {
   const { query } = action.payload
-
   try {
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${query}&key=${process.env.REACT_APP_OPENCAGEDATE_API_KEY}`
     const locationResponse = yield fetch(url).then(response => response.json())

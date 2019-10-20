@@ -1,18 +1,33 @@
 version: '3.3'
 
+networks:
+  backend_network:
+  frontend_network:
+
 services:
-  app:
-    env_file: '.env'
-    build:
-      context: services/app
-    expose:
-      - '${PORT}'
-    volumes:
-      - '~/.bash_history:/.bash_history'
   nginx:
     build:
       context: services/nginx
     ports:
       - '80:80'
+    networks:
+      - frontend_network
+      - backend_network
     depends_on:
-      - app
+      - frontend
+  frontend:
+    env_file: '.env'
+    build:
+      context: services/frontend
+    networks:
+     - frontend_network
+    volumes:
+      - '~/.bash_history:/.bash_history'
+    depends_on:
+      - backend
+  backend:
+    env_file: '.env'
+    build:
+      context: services/backend
+    networks:
+      - backend_network
