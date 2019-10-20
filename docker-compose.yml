@@ -6,6 +6,7 @@ networks:
 
 services:
   nginx:
+    env_file: '.env'
     build:
       context: services/nginx
     ports:

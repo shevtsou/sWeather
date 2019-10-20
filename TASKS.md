@@ -1,4 +1,3 @@
-- check code gargbage like console.log
-- .env issue
 - move proxy server to .env
 - enable eslint for whole app
+- .env issue

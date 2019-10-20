@@ -1,4 +1,5 @@
 app_port: 3000
+backend_port: 4000
 app_image_name: "shevtsovnikita/sweather"
 nginx_image_name: "sehvtsovnikita/sweather-reverse"
 dockerhub_password: "{{ vault_dockerhub_password }}"
