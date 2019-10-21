@@ -37,9 +37,17 @@
       file:
         path: "{{ app_catalog }}"
         state: directory
-
     - template:
         src: environment.j2
         dest: "{{ env_file_path }}"
+      tags: env
+      become: true
+    - name: create frontend app dir
+      file:
+        path: "{{ frontend_catalog }}"
+        state: directory
+    - template:
+        src: environment.j2
+        dest: "{{ frontend_env_file_path }}"
       tags: env
       become: true

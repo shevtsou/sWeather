@@ -1,3 +1,4 @@
 - move proxy server to .env
+- set env vars in nginx config
 - enable eslint for whole app
 - .env issue
