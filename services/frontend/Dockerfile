@@ -11,5 +11,5 @@ RUN yarn build
 FROM nginx:1.16.0-alpine
 COPY --from=build /app/build /usr/share/nginx/html
 RUN rm /etc/nginx/conf.d/default.conf
-COPY config/nginx.conf /etc/nginx/conf.d
-CMD ["nginx", "-g", "daemon off;"]
+COPY config/nginx.conf /etc/nginx/conf.d/nginx.template
+CMD ["/bin/sh","-c", "if [ -n \"${FRONTEND_PORT}\" ]; then echo FRONTEND PORT: ${FRONTEND_PORT} && envsubst '${FRONTEND_PORT}' < /etc/nginx/conf.d/nginx.template > /etc/nginx/conf.d/nginx.conf; fi ; nginx -g 'daemon off;'"]
