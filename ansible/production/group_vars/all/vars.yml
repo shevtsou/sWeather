@@ -7,5 +7,3 @@ catalog_user: root
 catalog_user_home: root
 app_catalog: "{{ catalog_user_home }}/sweather"
 env_file_path: "{{ app_catalog }}/.env"
-frontend_catalog: "{{ catalog_user_home }}/sweather/frontend"
-frontend_env_file_path: "{{ frontend_catalog }}/.env"

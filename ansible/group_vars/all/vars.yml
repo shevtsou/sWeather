@@ -1,7 +1,11 @@
-app_port: 3000
+# App ports
+frontend_port: 3000
 backend_port: 4000
-app_image_name: "shevtsovnikita/sweather"
-nginx_image_name: "sehvtsovnikita/sweather-reverse"
+
+# Docker config
+frontend_image_name: "shevtsovnikita/sweather"
+backend_image_name: "shevtsovnikita/sweather-cors"
+nginx_image_name: "shevtsovnikita/sweather-reverse"
 dockerhub_password: "{{ vault_dockerhub_password }}"
 dockerhub_username: "{{ vault_dockerhub_username }}"
 
@@ -10,3 +14,4 @@ weatherbit_api_key: "{{ weatherbit_api_key }}"
 weather_stack_api_key: "{{ weather_stack_api_key }}"
 opencagedate_api_key: "{{ opencagedate_api_key }}"
 geocoding_api_key: "{{ geocoding_api_key }}"
+do_token: "{{ vault_do_token }}"
