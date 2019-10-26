@@ -40,7 +40,7 @@ export function * retrieveWeather (action) {
 
 function * retrieveWeatherFromMetaweather (location) {
   const forecasts = []
-  let url = `${CORS_PROXY_URL}/https://www.metaweather.com/api/location/search/?lattlong=${location.latitude},${location.longitude}`
+  let url = `${CORS_PROXY_URL}/https://www.metaweather.com/api/location/search/?lattlong=${location.latitude},${location.longitude}`  
   let response = yield fetch(url).then(response => response.json())
   const [first] = response
   const { woeid } = first

@@ -1,0 +1,69 @@
+---
+- hosts: all
+  gather_facts: no
+
+- hosts: all
+  tasks:
+    - name: log in to registery
+      docker_login:
+        username: "{{ dockerhub_username }}"
+        password: "{{ dockerhub_password }}"
+      tags: app
+
+    - name: pull backend
+      docker_image:
+        name: "{{ backend_image_name }}:latest"
+        force: yes
+      tags: app
+
+    - name: pull frontend
+      docker_image:
+        name: "{{ frontend_image_name }}:latest"
+        force: yes
+      tags: app
+
+    - name: pull nginx
+      docker_image:
+        name: "{{ nginx_image_name }}:latest"
+        force: yes
+      tags: app
+
+    - name: start backend
+      docker_container:
+        recreate: yes
+        name: backend
+        state: started
+        restart_policy: always
+        image: "{{ backend_image_name }}:latest"
+        env_file: "{{ env_file_path }}"
+        exposed_ports:
+          - 4000
+        networks:
+          - name: "{{ sweather_network }}"
+      tags: app
+
+    - name: start frontend
+      docker_container:
+        recreate: yes
+        name: frontend
+        state: started
+        restart_policy: always
+        image: "{{ frontend_image_name }}:latest"
+        env_file: "{{ env_file_path }}"
+        exposed_ports:
+          - 3000
+        networks:
+          - name: "{{ sweather_network }}"
+      tags: app
+
+    - name: start nginx
+      docker_container:
+        name: nginx
+        image: "{{ nginx_image_name }}:latest"
+        env_file: "{{ env_file_path }}"
+        state: started
+        restart_policy: always
+        networks:
+          - name: "{{ sweather_network }}"
+        ports:
+          - 80:80
