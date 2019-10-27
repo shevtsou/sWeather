@@ -17,9 +17,18 @@ resource "digitalocean_droplet" "web" {
   region = "fra1"
   size = "s-1vcpu-1gb"
   ssh_keys = ["${digitalocean_ssh_key.default.fingerprint}"]
-  provisioner "local-exec" {
-    command = "printf '[production]\n${self.ipv4_address}' > ansible/production/inventory"
+}
+
+data "template_file" "ansible_inventory" {
+  template = "${file("${path.cwd}/ansible/production/inventory.tpl")}"
+  vars = {
+    app_ip = "${digitalocean_droplet.web.ipv4_address}"
   }
+}
+
+resource "local_file" "ansible-production-inventory" {
+    content     = "${data.template_file.ansible_inventory.rendered}"
+    filename = "${path.cwd}/ansible/production/inventory"
 }
 
 resource "digitalocean_project" "sweather-project" {

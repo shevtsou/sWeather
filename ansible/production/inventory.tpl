@@ -1,2 +1,2 @@
 [production]
-104.248.35.50
+${app_ip}

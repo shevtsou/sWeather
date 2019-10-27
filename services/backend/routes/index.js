@@ -1,8 +1,8 @@
-var express = require('express');
-var request = require('request')
-var router = express.Router();
+const express = require('express');
+const request = require('request');
+const router = express.Router();
 
-router.all('*', function(req, res, next) {
+router.all('*', (req, res, next) => {
   request(req.originalUrl.substr(1)).pipe(res)
 })
 module.exports = router;
