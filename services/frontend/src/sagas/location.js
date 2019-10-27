@@ -42,7 +42,6 @@ export function * retrieveCurrentLocation () {
 
 export function * changeLocation (action) {
   const { query } = action.payload
-
   try {
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${query}&key=${process.env.REACT_APP_OPENCAGEDATE_API_KEY}`
     const locationResponse = yield fetch(url).then(response => response.json())
