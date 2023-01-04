@@ -63,7 +63,7 @@
     "eslint-plugin-standard": "^4.0.1",
     "jest-image-snapshot": "^2.9.0",
     "jest-styled-components": "^6.3.3",
-    "jest-transform-css": "^2.0.0",
+    "jest-transform-css": "^6.0.0",
     "jest-transform-file": "^1.1.1",
     "jsdom-screenshot": "^3.2.0",
     "react-app-rewired": "^2.1.3",
